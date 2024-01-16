@@ -10,7 +10,7 @@ function get_data_from_database($username, $password) {
     }
 
     // Exécutez votre requête SQL pour récupérer les données
-    $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($query);
 
     // Récupérez les résultats de la requête

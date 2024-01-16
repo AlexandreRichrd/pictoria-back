@@ -5,7 +5,7 @@ require_once 'connexion.php';
 
 // Autorisez toutes les origines
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, OPTIONS');  // Ajoutez OPTIONS pour gérer les requêtes pré-vérification
+header('Access-Control-Allow-Methods: GET, OPTIONS, POST');  // Ajoutez OPTIONS pour gérer les requêtes pré-vérification
 header('Access-Control-Allow-Headers: Content-Type');  // Ajoutez les en-têtes nécessaires pour votre application
 
 // Vérifiez la méthode de la requête HTTP
