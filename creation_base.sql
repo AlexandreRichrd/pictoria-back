@@ -18,12 +18,12 @@ DROP TABLE IF EXISTS Club;
 CREATE TABLE Club (
     numClub INT NOT NULL auto_increment,
     nomClub VARCHAR(40) NOT NULL,
-    adresse VARCHAR(40) NOT NULL,
-    numTéléphone VARCHAR(20) NOT NULL,
-    nombreAdhérents INT,
-    ville VARCHAR(40),
-    département VARCHAR(40),
-    région VARCHAR(40),
+    adresse VARCHAR(60) NOT NULL,
+    numTéléphone VARCHAR(10),
+    nombreAdhérents INT NOT NULL,
+    ville VARCHAR(60) NOT NULL,
+    département VARCHAR(60) NOT NULL,
+    région VARCHAR(60) NOT NULL,
     PRIMARY KEY (numClub)
 );
 
@@ -31,8 +31,8 @@ CREATE TABLE Utilisateur (
     numUtilisateur INT NOT NULL auto_increment,
     nom VARCHAR(40) NOT NULL,
     prénom VARCHAR(40) NOT NULL,
-    adresse VARCHAR(40) NOT NULL,
-    age INT NOT NULL,
+    adresse VARCHAR(60) NOT NULL,
+    age INT,
     dateDeNaissance DATE NOT NULL,
     nationalité VARCHAR(40) NOT NULL,
     login VARCHAR(40) NOT NULL,
