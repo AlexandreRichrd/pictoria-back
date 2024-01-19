@@ -11,10 +11,9 @@ CREATE TABLE users (
     password VARCHAR(255),
     nom VARCHAR(255),
     prenom VARCHAR(255),
-    adresse VARCHAR(255),
-    message TEXT
+    adresse VARCHAR(255)
 );
 
 -- Insertion de l'utilisateur "johndoe"
-INSERT INTO users (id, username, password, nom, prenom, adresse, message)
-VALUES (1, 'johndoe', 'password', 'Doe', 'John', '123 Main Street', 'triple monstre');
+INSERT INTO users (id, username, password, nom, prenom, adresse)
+VALUES (1, 'johndoe', 'password', 'Doe', 'John', '123 Main Street');
