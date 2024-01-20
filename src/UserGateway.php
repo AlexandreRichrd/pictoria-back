@@ -15,6 +15,10 @@ class UserGateway{
         }
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getConnection():mysqli {
+        return $this->connection;
+    }
 }
 
 ?>

@@ -17,10 +17,12 @@ class UserController{
                 echo 'GET';
                 break;
             case 'POST':
-                $this->post($body);
+                $data = json_decode(file_get_contents('php://input'), true);
+                $this->post($data);
                 break;
             case 'PUT':
-                $this->put($body);
+                $data = json_decode(file_get_contents('php://input'), true);
+                $this->put($data);
                 break;
             case 'DELETE':
                 $this->delete($body);
@@ -31,18 +33,59 @@ class UserController{
     }
 
     private function post(?array $body):void {
-        if(!isset($body['name']) || !isset($body['firstname']) || !isset($body['address']) || !isset($body['username']) || !isset($body['password'])){
-            echo 'Missing parameters';
+        // if(!isset($body['name']) || !isset($body['firstname']) || !isset($body['address']) || !isset($body['username']) || !isset($body['password'])){
+        //     echo 'Missing parameters';
+        //     return;
+        // }
+        // On vérifie si l'utilisateur existe déjà
+        $query = "SELECT * FROM users WHERE username = ?";
+        $stmt = $this->gateway->getConnection()->prepare($query);
+        $stmt->bind_param("s", $body['username']);  // "s" indique que le paramètre est une chaîne (string)
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = array();
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        $stmt->close();
+        if(count($data) > 0){
+            echo 'User already exists';
             return;
         }
         // On créer un nouvel utilisateur
-        
         $query = "INSERT INTO users (name, firstname, address, username, password) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->gateway->getConnection()->prepare($query);
+        $stmt->bind_param("sssss", $body['name'], $body['firstname'], $body['address'], $body['username'], $body['password']);  // "ssss" indique que les 4 paramètres sont des chaînes (strings)
+        $stmt->execute();
+        $stmt->close();
+        echo 'User created';
         
     }
 
     private function put(?array $body):void {
-        echo 'PUT';
+        if(!isset($body['username']) || !isset($body['password'])){
+            echo 'Missing parameters';
+            return;
+        }
+        // On vérifie que l'utilisateur existe
+        $query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        $stmt = $this->gateway->getConnection()->prepare($query);
+        $stmt->bind_param("ss", $body['username'], $body['password']);  // "ss" indique que les deux paramètres sont des chaînes (strings)
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = array();
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        $stmt->close();
+        if(count($data) == 0){
+            echo 'User not found';
+            return;
+        }
+        // On retourne l'utilisateur
+        echo json_encode($data[0]);
+
+
     }
 
     private function delete(?array $body):void {

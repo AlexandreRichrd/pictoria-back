@@ -9,11 +9,11 @@ CREATE TABLE users (
     id INT PRIMARY KEY,
     username VARCHAR(255),
     password VARCHAR(255),
-    nom VARCHAR(255),
-    prenom VARCHAR(255),
-    adresse VARCHAR(255)
+    name VARCHAR(255),
+    firstname VARCHAR(255),
+    address VARCHAR(255)
 );
 
 -- Insertion de l'utilisateur "johndoe"
-INSERT INTO users (id, username, password, nom, prenom, adresse)
+INSERT INTO users (id, username, password, name, firstname, address)
 VALUES (1, 'johndoe', 'password', 'Doe', 'John', '123 Main Street');
