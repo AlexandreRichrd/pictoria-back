@@ -33,10 +33,10 @@ class UserController{
     }
 
     private function post(?array $body):void {
-        // if(!isset($body['name']) || !isset($body['firstname']) || !isset($body['address']) || !isset($body['username']) || !isset($body['password'])){
-        //     echo 'Missing parameters';
-        //     return;
-        // }
+        if(!isset($body['name']) || !isset($body['firstname']) || !isset($body['address']) || !isset($body['username']) || !isset($body['password'])){
+            echo 'Missing parameters';
+            return;
+        }
         // On vérifie si l'utilisateur existe déjà
         $query = "SELECT * FROM users WHERE username = ?";
         $stmt = $this->gateway->getConnection()->prepare($query);
@@ -52,6 +52,7 @@ class UserController{
             echo 'User already exists';
             return;
         }
+        echo 'yo';
         // On créer un nouvel utilisateur
         $query = "INSERT INTO users (name, firstname, address, username, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->gateway->getConnection()->prepare($query);

@@ -6,7 +6,7 @@ USE pictoria;
 
 -- Création de la table "users"
 CREATE TABLE users (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255),
     password VARCHAR(255),
     name VARCHAR(255),
