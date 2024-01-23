@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS ParticipeClub;
 DROP TABLE IF EXISTS Evaluation;
 DROP TABLE IF EXISTS Dessin;
 DROP TABLE IF EXISTS Competiteur;
-DROP TABLE IF EXISTS Président;
+DROP TABLE IF EXISTS President;
 DROP TABLE IF EXISTS Administrateur;
 DROP TABLE IF EXISTS Directeur;
 DROP TABLE IF EXISTS Evaluateur;
@@ -19,22 +19,22 @@ CREATE TABLE Club (
     numClub INT NOT NULL auto_increment,
     nomClub VARCHAR(40) NOT NULL,
     adresse VARCHAR(60) NOT NULL,
-    numTéléphone VARCHAR(10),
-    nombreAdhérents INT NOT NULL,
+    numTelephone VARCHAR(10),
+    nombreAdherents INT NOT NULL,
     ville VARCHAR(60) NOT NULL,
-    département VARCHAR(60) NOT NULL,
-    région VARCHAR(60) NOT NULL,
+    departement VARCHAR(60) NOT NULL,
+    region VARCHAR(60) NOT NULL,
     PRIMARY KEY (numClub)
 );
 
 CREATE TABLE Utilisateur (
     numUtilisateur INT NOT NULL auto_increment,
     nom VARCHAR(40) NOT NULL,
-    prénom VARCHAR(40) NOT NULL,
+    prenom VARCHAR(40) NOT NULL,
     adresse VARCHAR(60) NOT NULL,
     age INT,
     dateDeNaissance DATE NOT NULL,
-    nationalité VARCHAR(40) NOT NULL,
+    nationalite VARCHAR(40) NOT NULL,
     login VARCHAR(40) NOT NULL,
     motDePasse VARCHAR(40) NOT NULL,
     numClub INT NOT NULL,
@@ -44,58 +44,58 @@ CREATE TABLE Utilisateur (
 
 CREATE TABLE Concours (
     numConcours INT NOT NULL auto_increment,
-    thème VARCHAR(40),
-    dateDébut DATE NOT NULL,
+    theme VARCHAR(40),
+    dateDebut DATE NOT NULL,
     dateFin DATE NOT NULL,
-    dateCréation DATE NOT NULL,
+    dateCreation DATE NOT NULL,
     etat VARCHAR(20) NOT NULL,
-    récompenses VARCHAR(50),
+    recompenses VARCHAR(50),
     PRIMARY KEY (numConcours)
 );
 
-CREATE TABLE Président (
-    numPrésident INT NOT NULL,
+CREATE TABLE President (
+    numPresident INT NOT NULL,
     prime INT,
-    PRIMARY KEY (numPrésident),
-    FOREIGN KEY (numPrésident) REFERENCES Utilisateur(numUtilisateur)
+    PRIMARY KEY (numPresident),
+    FOREIGN KEY (numPresident) REFERENCES Utilisateur(numUtilisateur)
 );
 
 CREATE TABLE Administrateur (
     numAdministrateur INT NOT NULL,
-    dateDébut DATE,
+    dateDebut DATE,
     PRIMARY KEY (numAdministrateur),
     FOREIGN KEY (numAdministrateur) REFERENCES Utilisateur(numUtilisateur)
 );
 
 CREATE TABLE Directeur (
     numDirecteur INT NOT NULL,
-    dateDébut DATE,
+    dateDebut DATE,
     PRIMARY KEY (numDirecteur),
     FOREIGN KEY (numDirecteur) REFERENCES Utilisateur(numUtilisateur)
 );
 
 CREATE TABLE Competiteur (
-    numCompétiteur INT NOT NULL,
-    datePremièreParticipation DATE,
-    spécialité VARCHAR(40),
-    PRIMARY KEY (numCompétiteur),
-    FOREIGN KEY (numCompétiteur) REFERENCES Utilisateur(numUtilisateur)
+    numCompetiteur INT NOT NULL,
+    datePremiereParticipation DATE,
+    specialite VARCHAR(40),
+    PRIMARY KEY (numCompetiteur),
+    FOREIGN KEY (numCompetiteur) REFERENCES Utilisateur(numUtilisateur)
 );
 
 CREATE TABLE Dessin (
     numDessin INT NOT NULL auto_increment,
-    numCompétiteur INT NOT NULL,
+    numCompetiteur INT NOT NULL,
     commentaire TEXT,
     classement INT,
     dateRemise DATE,
     leDessin BLOB NOT NULL,
     PRIMARY KEY (numDessin),
-    FOREIGN KEY (numCompétiteur) REFERENCES Competiteur(numCompétiteur)
+    FOREIGN KEY (numCompetiteur) REFERENCES Competiteur(numCompetiteur)
 );
 
 CREATE TABLE Evaluateur (
     numEvaluateur INT NOT NULL,
-    spécialité VARCHAR(40),
+    specialite VARCHAR(40),
     PRIMARY KEY (numEvaluateur),
     FOREIGN KEY (numEvaluateur) REFERENCES Utilisateur(numUtilisateur)
 );
@@ -112,10 +112,10 @@ CREATE TABLE Evaluation (
 );
 
 CREATE TABLE ParticipeCompetiteur (
-    numCompétiteur INT NOT NULL,
+    numCompetiteur INT NOT NULL,
     numConcours INT NOT NULL,
-    PRIMARY KEY (numCompétiteur, numConcours),
-    FOREIGN KEY (numCompétiteur) REFERENCES Competiteur(numCompétiteur),
+    PRIMARY KEY (numCompetiteur, numConcours),
+    FOREIGN KEY (numCompetiteur) REFERENCES Competiteur(numCompetiteur),
     FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
 
