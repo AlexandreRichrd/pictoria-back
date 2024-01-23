@@ -5,11 +5,11 @@ DROP TABLE IF EXISTS ParticipeCompetiteur;
 DROP TABLE IF EXISTS ParticipeClub;
 DROP TABLE IF EXISTS Evaluation;
 DROP TABLE IF EXISTS Dessin;
-DROP TABLE IF EXISTS Competiteur;
 DROP TABLE IF EXISTS President;
 DROP TABLE IF EXISTS Administrateur;
 DROP TABLE IF EXISTS Directeur;
 DROP TABLE IF EXISTS Evaluateur;
+DROP TABLE IF EXISTS Competiteur;
 DROP TABLE IF EXISTS Utilisateur;
 DROP TABLE IF EXISTS Concours;
 DROP TABLE IF EXISTS Club;
@@ -37,6 +37,7 @@ CREATE TABLE Utilisateur (
     login VARCHAR(40) NOT NULL,
     motDePasse VARCHAR(40) NOT NULL,
     numClub INT,
+    dateLicence DATE NOT NULL DEFAULT current_date,
     PRIMARY KEY (numUtilisateur),
     FOREIGN KEY (numClub) REFERENCES Club(numClub)
 );
