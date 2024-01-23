@@ -37,7 +37,7 @@ CREATE TABLE Utilisateur (
     login VARCHAR(40) NOT NULL,
     motDePasse VARCHAR(40) NOT NULL,
     numClub INT,
-    dateLicence DATE NOT NULL DEFAULT current_date,
+    dateLicence DATE,
     PRIMARY KEY (numUtilisateur),
     FOREIGN KEY (numClub) REFERENCES Club(numClub)
 );
