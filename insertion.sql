@@ -352,16 +352,23 @@ VALUES
 
 
 -- Insertion pour la table Concours
-INSERT INTO Concours (numConcours, thème, dateDébut, dateFin, dateCréation, etat, récompenses)
+INSERT INTO Concours (thème, dateDébut, dateFin, dateCréation, etat, récompenses)
 VALUES
-    ('Thème1', '2023-01-01', '2023-03-31', '2022-12-01', 'En cours', 'Une Porsche GT3RS'),
-    ('Thème2', '2024-03-01', '2024-03-10', '2024-02-15', 'Planifié', 'Une bouteille d''eau'),
-    ('Thème1', '2024-02-01', '2024-02-10', '2024-01-15', 'En cours', '100 euros'),
-    ('Thème2', '2024-03-01', '2024-03-10', '2024-02-15', 'Planifié', 'Un bon d''achat'),
-    ('Thème1', '2024-02-01', '2024-02-10', '2024-01-15', 'En cours', 'un stylot 4 couleurs'),
-    ('Thème2', '2024-03-01', '2024-03-10', '2024-02-15', 'Planifié', 'Le droit de revenir'),
-    ('Thème1', '2024-02-01', '2024-02-10', '2024-01-15', 'En cours', 'prout'),
-    ('Thème2', '2024-03-01', '2024-03-10', '2024-02-15', 'Planifié', 'Récompenses2'),
+    -- Concours 2022
+    ('Futurisme', '2022-01-01', '2023-03-01', '2022-01-01', 'evalue', 'Voyage au Maldives'),
+    ('Nature abstraite', '2022-04-01', '2023-06-01', '2022-01-01', 'evalue', 'Crayon'),
+    ('Voyages imaginaires', '2022-07-01', '2023-09-01', '2022-01-01', 'evalue', 'Lambo'),
+    ('Portraits expressifs', '2022-10-01', '2023-12-01', '2022-01-01', 'evalue', 'Villa'),
+    -- Concours 2023
+    ('Juxtaposition de cultures', '2023-01-01', '2023-03-01', '2023-01-01', 'evalue', '100 euros'),
+    ('Faune fantastique', '2023-04-01', '2023-06-01', 'evalue', '2023-01-01', '200 euros'),
+    ('Rêves et cauchemars', '2023-07-01', '2023-09-01', 'evalue', '2023-01-01', '300 euros'),
+    ('Abstraction géométrique', '2022-10-01', '2023-12-01', '2023-01-01', 'evalue', '400 euros'),
+    -- Concours 2024
+    ('Art Nouveau', '2024-01-01', '2024-03-01', '2024-01-01', 'en cours', 'Voyage aux Caraïbes'),
+    ('Pop Art', '2024-04-01', '2024-06-01', '2024-01-01', 'pas commencé', 'Merco'),
+    ('Minimalisme', '2024-07-01', '2024-09-01', '2024-01-01', 'pas commencé', '1 euro'),
+    ('Steampunk', '2024-10-01', '2024-12-01', '2024-01-01', 'pas commencé', '20 centimes');
 
 
 -- Insertion pour la table Président
