@@ -400,7 +400,7 @@ VALUES
 
 
 -- Insertion pour la table Dessin
-INSERT INTO Dessin (numDessin, numCompétiteur, commentaire, classement, dateRemise, leDessin)
+INSERT INTO Dessin (numCompétiteur, commentaire, classement, dateRemise, leDessin)
 VALUES
     (1, 'Commentaire1', 1, '2024-02-05', 'Chemin/vers/leDessin1.png'),
     (2, 'Commentaire2', 2, '2024-02-10', 'Chemin/vers/leDessin2.png');
