@@ -1,8 +1,10 @@
 <?php
 
+require('JWTController.php');
+
 class UserController{
 
-    public function __construct(private UserGateway $gateway){}
+    public function __construct(private Gateway $gateway){}
 
     public function processRequest(string $method, ?array $body):void {
         $this->processCollectionRequest($method);
@@ -33,12 +35,12 @@ class UserController{
     }
 
     private function post(?array $body):void {
-        if(!isset($body['name']) || !isset($body['firstname']) || !isset($body['address']) || !isset($body['username']) || !isset($body['password'])){
+        if(!isset($body['name']) || !isset($body['firstname']) || !isset($body['address']) || !isset($body['username']) || !isset($body['password']) || !isset($body['nationality']) || !isset($body['birthDate']) || !isset($body['birthDate'])){
             echo 'Missing parameters';
             return;
         }
         // On vérifie si l'utilisateur existe déjà
-        $query = "SELECT * FROM users WHERE username = ?";
+        $query = "SELECT * FROM utilisateur WHERE login = ?";
         $stmt = $this->gateway->getConnection()->prepare($query);
         $stmt->bind_param("s", $body['username']);  // "s" indique que le paramètre est une chaîne (string)
         $stmt->execute();
@@ -52,11 +54,12 @@ class UserController{
             echo 'User already exists';
             return;
         }
-        echo 'yo';
+        $currentDate = date('Y-m-d');
+
         // On créer un nouvel utilisateur
-        $query = "INSERT INTO users (name, firstname, address, username, password) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO utilisateur (nom, prenom, adresse, dateDeNaissance, nationalite, login, motDePasse, dateLicence) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->gateway->getConnection()->prepare($query);
-        $stmt->bind_param("sssss", $body['name'], $body['firstname'], $body['address'], $body['username'], $body['password']);  // "ssss" indique que les 4 paramètres sont des chaînes (strings)
+        $stmt->bind_param("ssssssss", $body['name'], $body['firstname'], $body['address'], $body['birthDate'], $body['nationality'], $body['username'], $body['password'], $currentDate);  // "ssssssss" indique que les 7 paramètres sont des chaînes (strings)
         $stmt->execute();
         $stmt->close();
         echo 'User created';
@@ -69,7 +72,7 @@ class UserController{
             return;
         }
         // On vérifie que l'utilisateur existe
-        $query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        $query = "SELECT * FROM utilisateur WHERE login = ? AND motDePasse = ?";
         $stmt = $this->gateway->getConnection()->prepare($query);
         $stmt->bind_param("ss", $body['username'], $body['password']);  // "ss" indique que les deux paramètres sont des chaînes (strings)
         $stmt->execute();
@@ -83,8 +86,15 @@ class UserController{
             echo 'User not found';
             return;
         }
-        // On retourne l'utilisateur
-        echo json_encode($data[0]);
+        // On génère le JWT
+        $userData = [
+            'userId' => $data[0]['numUtilisateur'],
+            'username' => $data[0]['login']
+        ];
+        $jwt = new JWT($userData);
+
+
+        echo json_encode($jwt->getToken());
 
 
     }
@@ -92,4 +102,6 @@ class UserController{
     private function delete(?array $body):void {
         echo 'DELETE';
     }
+
+    
 }

@@ -19,7 +19,14 @@ $parts = explode('/', $_SERVER['REQUEST_URI']);
 
 
 $database = new Database(DB_HOST, DB_NAME, DB_USER, DB_PASS);
-$gateway = new UserGateway($database);
+$gateway = new Gateway($database);
 
-$controller = new UserController($gateway);
-$controller->processRequest($_SERVER['REQUEST_METHOD'], $parts);
+if($parts[3] == 'users'){   
+    $controller = new UserController($gateway);
+    $controller->processRequest($_SERVER['REQUEST_METHOD'], $parts);
+}else if($parts[3] == 'contests'){
+    $controller = new ContestController($gateway);
+    $controller->processRequest($_SERVER['REQUEST_METHOD'], $parts);
+}else{
+    echo 'Route not found';
+}

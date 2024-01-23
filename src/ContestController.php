@@ -1,23 +1,34 @@
 <?php
 
-class ContestGateway{
-    private mysqli $connection;
+class ContestController{
+    
+    public function __construct(private Gateway $gateway){}
 
-    public function __construct(Database $database){
-        $this->connection = $database->getConnection();
+    public function processRequest(string $method):void {
+        $this->processCollectionRequest($method);
     }
 
-    public function getAll():array {
-        $query = "SELECT * FROM Concours";
-        $result = $this->connection->query($query);
-        if(!$result){
-            throw new Exception("Error while fetching contests");
+    private function processCollectionRequest($method){
+        switch($method){
+            case 'GET':
+                $this->getAllContests();
+                break;
+            default:
+                echo 'Method not supported';
         }
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getConnection():mysqli {
-        return $this->connection;
+    private function getAllContests(){
+        $query = "SELECT * FROM concours";
+        $stmt = $this->gateway->getConnection()->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = array();
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        $stmt->close();
+        echo json_encode($data);
     }
 }
 
