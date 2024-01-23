@@ -48,7 +48,7 @@ CREATE TABLE Concours (
     dateDebut DATE NOT NULL,
     dateFin DATE NOT NULL,
     dateCreation DATE NOT NULL,
-    etat VARCHAR(20) NOT NULL,
+    etat ENUM('pas commence', 'en cours', 'attente', 'resultat', 'evalue') NOT NULL,
     recompenses VARCHAR(50),
     PRIMARY KEY (numConcours)
 );
