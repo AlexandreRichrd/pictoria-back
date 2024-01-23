@@ -1,5 +1,5 @@
 -- Insertion pour la table Club
-INSERT INTO Club (nomClub, adresse, numTéléphone, nombreAdhérents, ville, département, région)
+INSERT INTO Club (nomClub, adresse, numTelephone, nombreAdherents, ville, departement, region)
 VALUES
     ('DessinDuMonde', 'Boulevard Jean Janneteau', '0245763598', 10, 'Angers', 'Maine-et-Loire', 'Pays de la Loire'),
     ('QuoicouDessin', '50 Rue du cul', '0123456789', 10, 'Cholet', 'Maine-et-Loire', 'Pays de la Loire'),
@@ -26,7 +26,7 @@ VALUES
 
 
 -- Insertion pour la table Utilisateur
-INSERT INTO Utilisateur (nom, prénom, adresse, dateDeNaissance, nationalité, login, motDePasse, numClub)
+INSERT INTO Utilisateur (nom, prenom, adresse, dateDeNaissance, nationalite, login, motDePasse, numClub)
 VALUES
     
 ('Sharon','Cruyssen','Niort','1985-05-06','France','cruyssen-sharon3449@icloud.com','KZ735XS',1),
@@ -352,7 +352,7 @@ VALUES
 
 
 -- Insertion pour la table Concours
-INSERT INTO Concours (thème, dateDébut, dateFin, dateCréation, etat, récompenses)
+INSERT INTO Concours (theme, dateDebut, dateFin, dateCreation, etat, recompenses)
 VALUES
     -- Concours 2022
     ('Futurisme', '2022-01-01', '2023-03-01', '2022-01-01', 'evalue', 'Voyage au Maldives'),
@@ -372,35 +372,35 @@ VALUES
 
 
 -- Insertion pour la table Président
-INSERT INTO Président (numPrésident, prime)
+INSERT INTO President (numPresident, prime)
 VALUES
     (1, 5000),
     (2, 4000),
 
 
 -- Insertion pour la table Administrateur
-INSERT INTO Administrateur (numAdministrateur, dateDébut)
+INSERT INTO Administrateur (numAdministrateur, dateDebut)
 VALUES
     (1, '2024-01-01'),
     (2, '2024-02-01'),
 
 
 -- Insertion pour la table Directeur
-INSERT INTO Directeur (numDirecteur, dateDébut)
+INSERT INTO Directeur (numDirecteur, dateDebut)
 VALUES
     (1, '2024-01-01'),
     (2, '2024-02-01');
 
 
 -- Insertion pour la table Competiteur
-INSERT INTO Competiteur (numCompétiteur, datePremièreParticipation, specialité)
+INSERT INTO Competiteur (numCompetiteur, datePremiereParticipation, specialite)
 VALUES
     (1, '2023-05-15', 'Dessin'),
     (2, '2023-07-20', 'Peinture');
 
 
 -- Insertion pour la table Dessin
-INSERT INTO Dessin (numCompétiteur, commentaire, classement, dateRemise, leDessin)
+INSERT INTO Dessin (numCompetiteur, commentaire, classement, dateRemise, leDessin)
 VALUES
     (1, 'Commentaire1', 1, '2024-02-05', 'Chemin/vers/leDessin1.png'),
     (2, 'Commentaire2', 2, '2024-02-10', 'Chemin/vers/leDessin2.png');
@@ -414,14 +414,14 @@ VALUES
 
 
 -- Insertion pour la table Evaluateur
-INSERT INTO Evaluateur (numEvaluateur, spécialité)
+INSERT INTO Evaluateur (numEvaluateur, specialite)
 VALUES
     (1, 'Dessin'),
     (2, 'Peinture');
 
 
 -- Insertion pour la table ParticipeCompetiteur
-INSERT INTO ParticipeCompetiteur (numCompétiteur, numConcours)
+INSERT INTO ParticipeCompetiteur (numCompetiteur, numConcours)
 VALUES
     (1, 1),
     (2, 2);
