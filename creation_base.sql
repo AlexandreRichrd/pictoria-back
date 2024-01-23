@@ -32,12 +32,11 @@ CREATE TABLE Utilisateur (
     nom VARCHAR(40) NOT NULL,
     prenom VARCHAR(40) NOT NULL,
     adresse VARCHAR(60) NOT NULL,
-    age INT,
     dateDeNaissance DATE NOT NULL,
     nationalite VARCHAR(40) NOT NULL,
     login VARCHAR(40) NOT NULL,
     motDePasse VARCHAR(40) NOT NULL,
-    numClub INT NOT NULL,
+    numClub INT,
     PRIMARY KEY (numUtilisateur),
     FOREIGN KEY (numClub) REFERENCES Club(numClub)
 );
