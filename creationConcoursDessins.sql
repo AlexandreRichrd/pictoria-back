@@ -91,7 +91,7 @@ CREATE TABLE Dessin (
     dateRemise DATE,
     leDessin BLOB NOT NULL,
     PRIMARY KEY (numDessin),
-    FOREIGN KEY (numCompetiteur) REFERENCES Competiteur(numCompetiteur)
+    FOREIGN KEY (numCompetiteur) REFERENCES Competiteur(numCompetiteur),
     FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
 
