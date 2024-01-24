@@ -55,9 +55,10 @@ CREATE TABLE Concours (
 
 CREATE TABLE President (
     numPresident INT NOT NULL,
+    numConcours INT NOT NULL,
     prime INT,
     PRIMARY KEY (numPresident),
-    FOREIGN KEY (numPresident) REFERENCES Utilisateur(numUtilisateur)
+    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
 
 CREATE TABLE Administrateur (
@@ -85,12 +86,14 @@ CREATE TABLE Competiteur (
 CREATE TABLE Dessin (
     numDessin INT NOT NULL auto_increment,
     numCompetiteur INT NOT NULL,
+    numConcours INT NOT NULL,
     commentaire TEXT,
     classement INT,
     dateRemise DATE,
     leDessin BLOB NOT NULL,
     PRIMARY KEY (numDessin),
     FOREIGN KEY (numCompetiteur) REFERENCES Competiteur(numCompetiteur)
+    FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
 
 CREATE TABLE Evaluateur (
