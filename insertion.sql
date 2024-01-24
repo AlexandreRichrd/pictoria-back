@@ -396,23 +396,23 @@ VALUES
 INSERT INTO Competiteur (numCompetiteur, datePremiereParticipation, specialite)
 VALUES
     (5, '2023-05-15', 'Art Nouveau'),
-    (6, '2023-07-20', 'Minimalisme');
+    (6, '2023-07-20', 'Minimalisme'),
     (7, '2023-05-15', 'Art Nouveau'),
-    (8, '2023-04-18', 'SteamPunk');
+    (8, '2023-04-18', 'SteamPunk'),
     (9, '2023-05-16', 'Art Nouveau'),
-    (10, '2023-06-20', 'Pop Art');
+    (10, '2023-06-20', 'Pop Art'),
     (25, '2023-05-15', 'Art Nouveau'),
-    (26, '2023-07-20', 'Minimalisme');
+    (26, '2023-07-20', 'Minimalisme'),
     (27, '2023-05-15', 'Art Nouveau'),
-    (28, '2023-04-18', 'SteamPunk');
+    (28, '2023-04-18', 'SteamPunk'),
     (29, '2023-05-16', 'Art Nouveau'),
-    (30, '2023-06-20', 'Futurisme');
+    (30, '2023-06-20', 'Futurisme'),
     (45, '2023-05-15', 'Art Nouveau'),
-    (46, '2023-07-20', 'Minimalisme');
+    (46, '2023-07-20', 'Minimalisme'),
     (47, '2023-05-15', 'Art Nouveau'),
-    (48, '2023-04-18', 'SteamPunk');
+    (48, '2023-04-18', 'SteamPunk'),
     (49, '2023-05-16', 'Art Nouveau'),
-    (50, '2023-06-20', 'Futurisme');
+    (50, '2023-06-20', 'Futurisme'),
     (65, '2023-05-15', 'Art Nouveau'),
     (66, '2023-07-20', 'Minimalisme'),
     (67, '2023-05-15', 'Art Nouveau'),
