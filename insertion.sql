@@ -372,7 +372,7 @@ VALUES
 
 
 -- Insertion pour la table Président
-INSERT INTO President (numPresident, prime)
+INSERT INTO President (numPresident, numConcours, prime)
 VALUES
     (1, 5000),
     (2, 4000);
