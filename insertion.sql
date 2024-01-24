@@ -361,8 +361,8 @@ VALUES
     ('Portraits expressifs', '2022-10-01', '2023-12-01', '2022-01-01', 'evalue', 'Villa'),
     -- Concours 2023
     ('Juxtaposition de cultures', '2023-01-01', '2023-03-01', '2023-01-01', 'evalue', '100 euros'),
-    ('Faune fantastique', '2023-04-01', '2023-06-01', 'evalue', '2023-01-01', '200 euros'),
-    ('Rêves et cauchemars', '2023-07-01', '2023-09-01', 'evalue', '2023-01-01', '300 euros'),
+    ('Faune fantastique', '2023-04-01', '2023-06-01', '2023-01-01','evalue', '200 euros'),
+    ('Rêves et cauchemars', '2023-07-01', '2023-09-01', '2023-01-01','evalue',  '300 euros'),
     ('Abstraction géométrique', '2022-10-01', '2023-12-01', '2023-01-01', 'evalue', '400 euros'),
     -- Concours 2024
     ('Art Nouveau', '2024-01-01', '2024-03-01', '2024-01-01', 'en cours', 'Voyage aux Caraïbes'),
