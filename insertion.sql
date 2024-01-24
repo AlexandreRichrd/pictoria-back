@@ -386,11 +386,24 @@ VALUES
 
 
 -- Insertion pour la table Directeur
-INSERT INTO Directeur (numDirecteur, dateDebut)
+INSERT INTO Directeur (numDirecteur, dateDébut)
 VALUES
     (1, '2024-01-01'),
-    (2, '2024-02-01');
-
+    (21, '2024-01-15'),
+    (41, '2023-10-21'),
+    (61, '2023-02-02'),
+    (81, '2023-05-14'),
+    (101 '2023-12-25'),
+    (121, '2023-08-31'),
+    (141, '2023-07-28'),
+    (161, '2022-11-11'),
+    (181, '2022-10-16'),
+    (201, '2022-03-04'),
+    (221, '2022-04-30'),
+    (241, '2022-08-09'),
+    (261, '2022-12-20'),
+    (281, '2021-09-19'),
+    (301, '2021-02-17');
 
 -- Insertion pour la table Competiteur
 INSERT INTO Competiteur (numCompetiteur, datePremiereParticipation, specialite)
