@@ -88,7 +88,6 @@ CREATE TABLE Dessin (
     numCompetiteur INT NOT NULL,
     numConcours INT NOT NULL,
     commentaire TEXT,
-    classement INT,
     dateRemise DATE,
     leDessin BLOB NOT NULL,
     PRIMARY KEY (numDessin),
