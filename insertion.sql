@@ -374,15 +374,24 @@ VALUES
 -- Insertion pour la table Président
 INSERT INTO President (numPresident, numConcours, prime)
 VALUES
-    (1, 5000),
-    (2, 4000);
+    (1, 1, 5000),
+    (21, 2, 4000),
+    (41, 3, 3000),
+    (61, 4, 40000),
+    (81, 5, 500),
+    (101, 6, 5),
+    (121, 7, 10),
+    (141, 8, 50),
+    (161, 9, 100),
+    (181, 10, 1000),
+    (201, 11, 1500),
+    (221, 12, 4000);
 
 
 -- Insertion pour la table Administrateur
 INSERT INTO Administrateur (numAdministrateur, dateDebut)
 VALUES
-    (1, '2024-01-01'),
-    (2, '2024-02-01');
+    (1, '2009-01-01');
 
 
 -- Insertion pour la table Directeur
