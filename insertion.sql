@@ -520,7 +520,33 @@ VALUES
 
 
 
-
+-- Insertion pour la table Evaluateur
+INSERT INTO Evaluateur (numEvaluateur, specialite)
+VALUES
+    (2, 'Art Nouveau'),
+    (3, 'Rêves et cauchemars'),
+    (4, 'Faune fantastique'),
+    (22, 'Minimalisme'),
+    (23, 'Pop Art'),
+    (24, 'Art Nouveau'),
+    (42, 'Futurisme'),
+    (43, 'Pop Art'),
+    (44, 'Steampunk'),
+    (62, 'Nature abstraite'),
+    (63, 'Pop Art'),
+    (64, 'Art Nouveau'),
+    (82, 'Nature abstraite'),
+    (83, 'Pop Art'),
+    (84, 'Art Nouveau'),
+    (102, 'Abstraction'),
+    (103, 'Rêves et cauchemars'),
+    (104, 'Faune fantastique'),
+    (122, 'Minimalisme'),
+    (123, 'Pop Art'),
+    (124, 'Art Nouveau'),
+    (142, 'Futurisme'),
+    (143, 'Pop Art'),
+    (144, 'Steampunk');
 
 -- Insertion pour la table Evaluation
 INSERT INTO Evaluation (numDessin, numEvaluateur, dateEvaluation, note, commentaire)
@@ -577,33 +603,7 @@ VALUES
 
 
 
--- Insertion pour la table Evaluateur
-INSERT INTO Evaluateur (numEvaluateur, specialite)
-VALUES
-    (2, 'Art Nouveau'),
-    (3, 'Rêves et cauchemars'),
-    (4, 'Faune fantastique'),
-    (22, 'Minimalisme'),
-    (23, 'Pop Art'),
-    (24, 'Art Nouveau'),
-    (42, 'Futurisme'),
-    (43, 'Pop Art'),
-    (44, 'Steampunk'),
-    (62, 'Nature abstraite'),
-    (63, 'Pop Art'),
-    (64, 'Art Nouveau'),
-    (82, 'Nature abstraite'),
-    (83, 'Pop Art'),
-    (84, 'Art Nouveau'),
-    (102, 'Abstraction'),
-    (103, 'Rêves et cauchemars'),
-    (104, 'Faune fantastique'),
-    (122, 'Minimalisme'),
-    (123, 'Pop Art'),
-    (124, 'Art Nouveau'),
-    (142, 'Futurisme'),
-    (143, 'Pop Art'),
-    (144, 'Steampunk');
+
 
 
 -- Insertion pour la table ParticipeCompetiteur
