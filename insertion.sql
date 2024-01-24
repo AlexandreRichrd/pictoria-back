@@ -395,7 +395,7 @@ VALUES
 
 
 -- Insertion pour la table Directeur
-INSERT INTO Directeur (numDirecteur, dateDébut)
+INSERT INTO Directeur (numDirecteur, dateDebut)
 VALUES
     (1, '2024-01-01'),
     (21, '2024-01-15'),
