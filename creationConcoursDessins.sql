@@ -58,7 +58,7 @@ CREATE TABLE President (
     numConcours INT NOT NULL,
     prime INT,
     PRIMARY KEY (numPresident),
-    FOREIGN KEY (numPresident) REFERENCES Utilisateur(numUtilisateur)
+    FOREIGN KEY (numPresident) REFERENCES Utilisateur(numUtilisateur),
     FOREIGN KEY (numConcours) REFERENCES Concours(numConcours)
 );
 
