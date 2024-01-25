@@ -26,7 +26,7 @@ VALUES
 
 
 -- Insertion pour la table Utilisateur
-INSERT INTO Utilisateur (nom, prenom, adresse, dateDeNaissance, nationalite, login, motDePasse, numClub)
+INSERT INTO Utilisateur (prenom, nom, adresse, dateDeNaissance, nationalite, login, motDePasse, numClub)
 VALUES
     
 ('Sharon','Cruyssen','Niort','1985-05-06','France','cruyssen','KZ735XS',1),
