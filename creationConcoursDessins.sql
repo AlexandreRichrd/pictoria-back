@@ -29,8 +29,8 @@ CREATE TABLE Club (
 
 CREATE TABLE Utilisateur (
     numUtilisateur INT NOT NULL auto_increment,
-    nom VARCHAR(40) NOT NULL,
     prenom VARCHAR(40) NOT NULL,
+    nom VARCHAR(40) NOT NULL,
     adresse VARCHAR(60) NOT NULL,
     dateDeNaissance DATE NOT NULL,
     nationalite VARCHAR(40) NOT NULL,
