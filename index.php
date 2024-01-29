@@ -27,6 +27,12 @@ if($parts[3] == 'users'){
 }else if($parts[3] == 'contests'){
     $controller = new ContestController($gateway);
     $controller->processRequest($_SERVER['REQUEST_METHOD'], $parts);
-}else{
+}else if($parts[3] == 'draws'){
+    echo 'draws';
+    $controller = new DrawController($gateway);
+    $controller->processRequest($_SERVER['REQUEST_METHOD'], $parts);
+}
+else{
+    
     echo 'Route not found';
 }

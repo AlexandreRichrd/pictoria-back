@@ -37,6 +37,7 @@ class UserController{
     private function post(?array $body):void {
         if(!isset($body['name']) || !isset($body['firstname']) || !isset($body['address']) || !isset($body['username']) || !isset($body['password']) || !isset($body['nationality']) || !isset($body['birthDate']) || !isset($body['birthDate'])){
             echo 'Missing parameters';
+            print_r($body);
             return;
         }
         // On vérifie si l'utilisateur existe déjà

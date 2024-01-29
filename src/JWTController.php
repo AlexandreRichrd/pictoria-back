@@ -8,6 +8,7 @@ class JWT {
     public function __construct($payload) {
         $this->setHeader();
         $this->setSecret();
+        
         if (is_array($payload) && isset($payload['userId']) && isset($payload['username'])) {
             $this->setPayload($payload['userId'], $payload['username']);
             $this->setToken();
@@ -41,6 +42,31 @@ class JWT {
 
     public function getToken() {
         return $this->token;
+    }
+
+    public function decodeJWT($jwt){
+        $tokenParts = explode('.', $jwt);
+        if(count($tokenParts !== 3)){
+            throw new InvalidArgumentException('Token incorrect');
+        }
+        $header = json_decode($this->base64UrlDecode($headerEncoded), true);
+        $payload = json_decode($this->base64UrlDecode($payloadEncoded), true);
+
+        // Construire une signature basée sur le Header et le Payload encodés
+        $signature = hash_hmac('sha256', $headerEncoded . '.' . $payloadEncoded, $this->secret, true);
+        $signatureCheck = $this->base64UrlEncode($signature);
+
+        // Vérifier si la signature est valide
+        if ($signatureCheck !== $signatureEncoded) {
+                throw new UnexpectedValueException('Signature de Token invalide');
+        }
+
+        return $payload; // Le Payload contient les informations que vous avez encodées
+        
+    }
+
+    function base64UrlDecode($data) {
+        return base64_decode(strtr($data, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($data)) % 4));
     }
 
 
